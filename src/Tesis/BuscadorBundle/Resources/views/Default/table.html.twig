@@ -1,0 +1,17 @@
+
+<link href="{{ asset('css/datatables/css/jquery.dataTables.css') }}" rel="stylesheet">
+<script src="{{ asset('js/datatables/jquery.js')}}"></script>
+<script src="{{ asset('js/datatables/jquery.dataTables.js')}}"></script>
+    <h2>Controller Style Example</h2>
+
+    <h4>Example Table</h4>
+    <div class="table-bordered">
+        {{ addDataTable(columns, {
+            'path':          path('tesis_buscador_ajax'),
+            'bLengthChange': 1,
+            'bInfo':         1,
+            'bFilter':       1,
+        }) }}
+
+    </div>
+

@@ -1,0 +1,31 @@
+security:
+
+    encoders:
+        Tesis\BuscadorBundle\Entity\Usuario:
+            algorithm: bcrypt
+
+    providers:
+        usuarios:
+            entity:
+                class: TesisBuscadorBundle:Usuario
+                property: username
+
+    firewalls:
+
+        main:
+            pattern: ^/*
+            provider: usuarios
+            anonymous: ~
+            form_login:
+                login_path: /login
+                check_path: /login_check
+                default_target_path: /panel
+            logout:
+                path: /logout
+                target: /login
+            remember_me:
+                key: cupon1234
+                lifetime: 604800 # 7 * 24 * 3600 = 604.800 = 1 semana
+
+    access_control:
+        - { path: ^/panel, roles: ROLE_USUARIO }

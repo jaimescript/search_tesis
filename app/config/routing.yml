@@ -1,0 +1,7 @@
+tesis_buscador:
+    resource: "@TesisBuscadorBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+

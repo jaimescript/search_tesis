@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SRABON - Responsive, Touch Friendly Admin Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Panel Template">
+
+    {{ include('TesisBuscadorBundle:Styles:estilos.html.twig') }}
+    <link href="{{ asset('css/datatables/css/jquery.dataTables.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/datatables/jquery.js')}}"></script>
+    <script src="{{ asset('js/datatables/jquery.dataTables.js')}}"></script>
+
+<body>
+
+{{ include('TesisBuscadorBundle:Default:navbar.html.twig') }}
+
+{{ include('TesisBuscadorBundle:Default:sidebar.html.twig') }}
+
+<div id="main-content">
+    <p>url: {{ url }}</p>
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li><a href="{{ path('tesis_buscador_panel') }}">Inicio</a><span class="divider">&raquo;</span></li>
+            <li class="active">Tesis</li>
+        </ul>
+
+        <div class="row-fluid">
+
+                <div class="table-bordered">
+                    {{ addDataTable(columns, {
+                        'path':          path('tesis_buscador_ajax'),
+                        'bLengthChange': 1,
+                        'bInfo':         1,
+                        'bFilter':       1,
+                    }) }}
+
+                </div>
+
+        </div>
+    </div>
+</div>
+{{ include('TesisBuscadorBundle:Scripts:scripts.html.twig') }}
+</body>
+</html>

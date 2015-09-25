@@ -1,0 +1,31 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner top-nav" style="background: #55A256 !important;">
+        <div class="container-fluid">
+            <div class="branding">
+                <ul class="nav pull-right">
+                    <li>
+                        <a style="font-weight: bold;font-size: 18px;font-family: Helvetica Neue,Helvetica,Arial,sans-serif;">
+                            TESIS DIGITALES
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav pull-right">
+                <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">{{ app.user.username }} <span class="alert-noty">25</span><i class="white-icons admin_user"></i><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="icon-inbox"></i> Inbox <span class="alert-noty">10</span></a></li>
+                        <li><a href="#"><i class="icon-envelope"></i> Notifications <span class="alert-noty">15</span></a></li>
+                        <li><a href="#"><i class="icon-briefcase"></i> My Account</a></li>
+                        <li><a href="#"><i class="icon-file"></i> View Profile</a></li>
+                        <li><a href="#"><i class="icon-pencil"></i> Edit Profile</a></li>
+                        <li><a href="#"><i class="icon-cog"></i> Account Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ path('extranet_logout') }}"><i class="icon-off"></i><strong> Logout</strong></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+
+        </div>
+    </div>
+</div>

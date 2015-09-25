@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SRABON - Responsive, Touch Friendly Admin Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Panel Template">
+
+    {{ include('TesisBuscadorBundle:Styles:estilos.html.twig') }}
+
+<body>
+
+{{ include('TesisBuscadorBundle:Default:navbar.html.twig') }}
+
+{{ include('TesisBuscadorBundle:Default:sidebar.html.twig') }}
+
+    {% block body %}
+    {% endblock %}
+
+{{ include('TesisBuscadorBundle:Scripts:scripts.html.twig') }}
+</body>
+</html>

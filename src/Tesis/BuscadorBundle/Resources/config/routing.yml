@@ -1,0 +1,70 @@
+tesis_buscador_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TesisBuscadorBundle:Default:index }
+
+tesis_buscador_inicio:
+    path:     /inicio
+    defaults: { _controller: TesisBuscadorBundle:Default:inicio }
+
+#--------------------------- LOGIN ------------------------------#
+extranet_login:
+    pattern: /login
+    defaults: { _controller: TesisBuscadorBundle:Extranet:login }
+
+extranet_login_check:
+    pattern: /login_check
+
+extranet_logout:
+    pattern: /logout
+
+#--------------------------- PANEL ------------------------------#
+tesis_buscador_panel:
+    pattern: /panel
+    defaults: { _controller: TesisBuscadorBundle:Default:panel }
+
+tesis_buscador_lista:
+    pattern: /lista
+    defaults: { _controller: TesisBuscadorBundle:Default:lista }
+
+tesis_buscador_table:
+    pattern: /table
+    defaults: { _controller: TesisBuscadorBundle:DtControllerStyle:index }
+
+tesis_buscador_ajax:
+    pattern: /ajax
+    defaults: { _controller: TesisBuscadorBundle:DtControllerStyle:data }
+
+tesis_buscador_editar:
+    pattern: /editar/{codigoTesis}
+    defaults: { _controller: TesisBuscadorBundle:Default:editar }
+
+tesis_buscador_editar_guardar:
+    pattern: /editarGuardar
+    defaults: { _controller: TesisBuscadorBundle:Default:editarGuardarTesis }
+
+#------------------------- AJAX ------------------------#
+
+listarDisciplinas:
+    pattern: /disciplinas
+    defaults: { _controller: TesisBuscadorBundle:Ajax:listarDisciplinas }
+    requirements:
+        _method:  POST
+    options:
+            expose: true
+
+listarFacultades:
+    pattern: /facultades
+    defaults: { _controller: TesisBuscadorBundle:Ajax:listarFacultades }
+    requirements:
+        _method:  POST
+    options:
+            expose: true
+
+listarProgramas:
+    pattern: /programas
+    defaults: { _controller: TesisBuscadorBundle:Ajax:listarProgramas }
+    requirements:
+        _method:  POST
+    options:
+            expose: true
+

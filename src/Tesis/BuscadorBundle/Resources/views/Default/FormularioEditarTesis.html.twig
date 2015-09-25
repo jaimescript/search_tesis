@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> EDICION DE TESIS - BIBLIOTECA - UCSM </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Editor de Tesis">
+    <meta name="author" content="UCSM">
+
+    {{ include('TesisBuscadorBundle:Styles:estilos.html.twig') }}
+</head>
+<body>
+
+
+{{ include('TesisBuscadorBundle:Default:navbar.html.twig') }}
+
+{{ include('TesisBuscadorBundle:Default:sidebar.html.twig') }}
+
+
+<div id="main-content">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li><a href="{{ path('tesis_buscador_panel') }}">Inicio</a><span class="divider">&raquo;</span></li>
+            <li class="active">Registro de nuevas Tesis</li>
+        </ul>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="box-tab">
+                    <div class="tabbable">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                <div class="span12 post_preview">
+                                    <div class="span6 ">
+                                        <fieldset class="form-horizontal ucase">
+
+                                            <form action="{{ path('tesis_buscador_editar_guardar') }}" method="post" {{
+                                            form_enctype(form) }}>
+                                                {{ form_widget(form) }}
+                                                <div class="form-actions" style="border-top: 1px solid #F3F8F3;">
+                                                    <input type="submit" class="btn btn-success" value="Guardar Cambios">
+                                                    <button class="btn btn-warning">Cancelar</button>
+                                                    <div id="prueba" name="prueba"></div>
+                                                </div>
+                                            </form>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{{ include('TesisBuscadorBundle:Scripts:scripts.html.twig') }}
+<script>
+    $(document).ready(function() {
+        listarDisciplinas();
+        listarFacultades();//lista facultades y programas
+        $('#tesis_facultad').on('change', function()
+        {
+            listarProgramas($("#tesis_codigoTesis").val(),$(this).find(":selected").val());
+        });
+    });
+    function listarDisciplinas()
+    {
+        $.post(Routing.generate('listarDisciplinas'),
+                {codigoTesis: $("#tesis_codigoTesis").val()},
+                function(data)
+                {
+                    if(data.responseCode == 200 )
+                    {
+                        $('#tesis_disciplina').html(data.DisciplinasHtml);
+                    }
+                }, "json");
+    }
+    function listarFacultades()
+    {
+        $.post(Routing.generate('listarFacultades'),
+                {codigoTesis: $("#tesis_codigoTesis").val()},
+                function(data)
+                {
+                    if(data.responseCode == 200 )
+                    {
+                        $('#tesis_facultad').html(data.FacultadesHtml);
+                        facultad = $("#tesis_facultad").find(":selected").val();
+                        listarProgramas($("#tesis_codigoTesis").val(), facultad  );
+                    }
+                }, "json");
+    }
+    function listarProgramas()
+    {
+        $('#tesis_programa').html("<option>Cargando...</option>");
+        var codigoTesis = arguments[0];
+        var facultad = arguments[1];
+
+        $.post(Routing.generate('listarProgramas'),
+                {
+                    codigoTesis: codigoTesis,
+                    IdFacultad: facultad
+                },
+                function(data)
+                {
+                    if(data.responseCode == 200 && data.ProgramasHtml)
+                    {
+                        $('#tesis_programa').html(data.ProgramasHtml);
+                    }
+                    else
+                    {
+                        $('#tesis_programa').html("<option>SIN ESCUELA PROFESIONAL</option>");
+                    }
+                }, "json");
+    }
+</script>
+<!-- fosjsrouting -->
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+</body>
+</html>
+
+
+

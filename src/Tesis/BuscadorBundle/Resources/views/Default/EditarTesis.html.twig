@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SRABON - Responsive, Touch Friendly Admin Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Panel Template">
+    <meta name="author" content="Westilian: Kamrujaman Shohel">
+
+    {{ include('TesisBuscadorBundle:Styles:estilos.html.twig') }}
+</head>
+<body>
+
+
+{{ include('TesisBuscadorBundle:Default:navbar.html.twig') }}
+
+{{ include('TesisBuscadorBundle:Default:sidebar.html.twig') }}
+
+
+
+
+<div id="main-content">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li><a href="{{ path('tesis_buscador_panel') }}">Inicio</a><span class="divider">&raquo;</span></li>
+            <li class="active">Registro de nuevas Tesis</li>
+        </ul>
+        <div class="row-fluid">
+            <div class="span12">
+                <form action="{{ path('tesis_buscador_editar_guardar') }}" method="post" >
+                <div class="box-tab">
+                    <div class="tabbable">
+                        <!-- Only required for left/right tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab"><i class="black-icons book_large"></i> Tesis</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <label id="volver_lista"><a href="javascript:history.go(-1)" style="cursor: pointer">Volver lista anterior</a></label>
+                            <p>&nbsp;</p>
+                            <div class="tab-pane active" id="tab1">
+                                <div class="span12 post_preview">
+
+                                    <div class="span6 ">
+
+                                        <fieldset class="form-horizontal ucase">
+                                            <div class="control-group">
+
+                                                <label class="control-label" for="input01">Codigo</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input text-tip" id="codigoTesis" name="codigoTesis" title="Llenar este dato" value="{{  tesis.codigoTesis }}">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="input01">Autor</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input-xlarge text-tip" id="autor" name="autor" title="Llenar este dato" value="{{  tesis.autor }}">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="input01">Titulo</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input-xlarge text-tip" id="titulo" name="titulo" title="first tooltip" value="{{  tesis.titulo }}">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="input01">Palabras clave</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input text-tip" id="palabrasClave" name="palabrasClave" title="first tooltip" value="{{  tesis.palabrasClave }}">
+                                                </div>
+                                            </div>
+
+                                            <div class="control-group">
+                                                <label class="control-label" for="input01">Fecha Aceptacion</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input text-tip" id="fechaAceptacion" name="fechaAceptacion" title="fecha de aceptacion de la tesis" value="{{  tesis.fechaAceptacion }}">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="input01">Nombre Ubicación</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input text-tip" id="ubicacion" name="ubicacion"  title="fecha de aceptacion de la tesis" value="{{  tesis.ubicacion }}">
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </div>
+                                    <div class="span6 ">
+                                        <fieldset class="form-horizontal ucase">
+                                            <div class="control-group">
+                                                <label class="control-label">Disciplina</label>
+                                                <div class="controls">
+                                                    <select id="disciplinas" name="disciplinas">
+                                                        <option>Cargando...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Facultades</label>
+                                                <div class="controls">
+                                                    <select id="facultades" name="facultades">
+                                                        <option>Cargando...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Escuelas</label>
+                                                <div class="controls">
+                                                    <select id="programas" name="programas">
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="input01">Grado a Optar</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input text-tip" id="grado" name="grado" title="fecha de aceptacion de la tesis" value="{{  tesis.grado }}">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="input01">Universidad</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input text-tip" id="universidad" name="universidad" title="fecha de aceptacion de la tesis" value="{{  tesis.universidad }}">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="input01">Copyright</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input text-tip" id="copyright" name="copyright" title="fecha de aceptacion de la tesis" value="{{  tesis.copyright }}">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="color-icons page_white_word_co"></span><span class="btn_link"> RESUMEN</span>
+                </div>
+                <blockquote class="quote_blue">
+                    <p>
+                        <span class="black-icons help"></span> Si existen problemas al guardar cambios en la descripcion, pruebe borrar comillas simples donde las encuentre . Ejemplo: <span style="font-weight: bold">O'brian</span>  lo cambio por <span style="font-style: italic;font-weight: bold">O brian</span>.
+                    </p>
+                </blockquote>
+                <div class="control-group">
+                    <div class="controls">
+                        <textarea id="post-editor" name="post-editor" rows="10" cols="5">
+                            {{ tesis.resumen }}
+                        </textarea>
+                    </div>
+                </div>
+                <div class="form-actions" style="border-top: 1px solid #F3F8F3;">
+                    <input type="submit" class="btn btn-success" value="Guardar Cambios">
+                    <button class="btn btn-warning">Cancelar</button>
+                    <div id="prueba" name="prueba"></div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{ include('TesisBuscadorBundle:Scripts:scripts.html.twig') }}
+<script>
+    $(document).ready(function() {
+        listarDisciplinas();
+        listarFacultades();
+        listarProgramas($("#codigoTesis").val(),{{  tesis.facultad }});
+        volverLista();
+
+        $('#facultades').on('change', function()
+        {
+            listarProgramas($("#codigoTesis").val(),$(this).find(":selected").val());
+        });
+    });
+    function volverLista()
+    {
+
+    }
+    function listarDisciplinas()
+    {
+        $.post(Routing.generate('listarDisciplinas'),
+                {codigoTesis: $("#codigoTesis").val()},
+                function(data)
+                {
+                    if(data.responseCode == 200 )
+                    {
+                        $('#disciplinas').html(data.DisciplinasHtml);
+                    }
+                }, "json");
+    }
+    function listarFacultades()
+    {
+        $.post(Routing.generate('listarFacultades'),
+                {codigoTesis: $("#codigoTesis").val()},
+                function(data)
+                {
+                    if(data.responseCode == 200 )
+                    {
+                        $('#facultades').html(data.FacultadesHtml);
+                    }
+                }, "json");
+    }
+    function listarProgramas()
+    {
+        $('#programas').html("<option>Cargando...</option>");
+        var codigoTesis = arguments[0];
+        var facultad = arguments[1];
+
+        $.post(Routing.generate('listarProgramas'),
+                {
+                    codigoTesis: codigoTesis,
+                    IdFacultad: facultad
+                },
+                function(data)
+                {
+                    if(data.responseCode == 200 && data.ProgramasHtml)
+                    {
+                        $('#programas').html(data.ProgramasHtml);
+                    }
+                    else
+                    {
+                        $('#programas').html("<option>SIN ESCUELA PROFESIONAL</option>");
+                    }
+                }, "json");
+    }
+
+</script>
+<!-- fosjsrouting -->
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+</body>
+</html>

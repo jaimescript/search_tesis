@@ -1,0 +1,37 @@
+{% extends 'TesisBuscadorBundle:Default:principal.html.twig' %}
+
+{% block body %}
+
+<div id="main-content">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li><a href="{{ path('tesis_buscador_panel') }}">Inicio</a><span class="divider">&raquo;</span></li>
+            <li class="active">Funciones</li>
+        </ul>
+        <div class="dashboard-widget">
+            <div class="row-fluid">
+                <div class="span2">
+                    <div class="dashboard-wid-wrap">
+                        <div class="dashboard-wid-content"> <a href=""> <i class="dashboard-icons-colors plus_sl"></i> <span class="dasboard-icon-title">Nueva Tesis</span> </a> </div>
+                    </div>
+                </div>
+                <div class="span2">
+                    <div class="dashboard-wid-wrap">
+                        <div class="dashboard-wid-content"> <a href="#"> <i class="dashboard-icons magnifying_glass_blk"></i> <span class="dasboard-icon-title">Buscar Tesis</span> </a> </div>
+                    </div>
+                </div>
+                <div class="span2">
+                    <div class="dashboard-wid-wrap">
+                        <div class="dashboard-wid-content"> <a href="{{ path('tesis_buscador_table') }}"> <i class="dashboard-icons-colors archives_sl"></i> <span class="dasboard-icon-title">Lista Tesis</span> </a> </div>
+                    </div>
+                </div>
+                <div class="span2">
+                    <div class="dashboard-wid-wrap">
+                        <div class="dashboard-wid-content"> <a href="{{ url }}"> <i class="dashboard-icons-colors lightbulb_sl"></i> <span class="dasboard-icon-title">Ayuda</span> </a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
